@@ -12,7 +12,7 @@ const SigninButton = (props: Props) => {
     <Button variant='ghost' onClick={()=>{
       signIn("google");
     }} >
-
+Sign In
     </Button>
   )
 }

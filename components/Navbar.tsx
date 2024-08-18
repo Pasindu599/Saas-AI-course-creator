@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import SigninButton from './SigninButton'
 
 type Props = {}
 
@@ -21,7 +22,7 @@ const Navbar = (props: Props) => {
         <Link href='/settings' className='mr-3'>
         Settings
         </Link>
-
+<SigninButton/>
        </div>
     </div>
 
