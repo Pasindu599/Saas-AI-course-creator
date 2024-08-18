@@ -1,10 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
 import SigninButton from './SigninButton'
+import { getAuthSession } from '@/lib/auth'
+import UserAccount from './UserAccount'
 
 type Props = {}
 
-const Navbar = (props: Props) => {
+const Navbar = async  (props: Props) => {
+    const session = await getAuthSession();
+    console.log(session);
   return (
    <nav className='fixed inset-x-0 bg-white dark:bg-gray-950 z-[10] h-fit border-b border-zinc-300 py-2'>
     <div className='flex items-center h-full gap-2 px-8 mx-auto sm:justify-between max-w-7xl'>
@@ -16,13 +20,27 @@ const Navbar = (props: Props) => {
        </Link>
 
        <div className='flex items-center'>
-        <Link href="/create" className='mr-3'>
-   Create Source
+        <Link href="/gallery" className='mr-3'>
+        Gallery
         </Link>
-        <Link href='/settings' className='mr-3'>
-        Settings
-        </Link>
-<SigninButton/>
+{
+    session?. user && (
+        <><Link href="/create" className='mr-3'>
+                              Create Source
+                          </Link><Link href='/settings' className='mr-3'>
+                                  Settings
+                              </Link></>
+    )
+}
+
+
+    <div className='flex items-center'>
+        {
+            session?.user ? <UserAccount/>:<SigninButton/>
+        }
+
+    </div>
+
        </div>
     </div>
 
