@@ -14,7 +14,7 @@ async function CreatePage({}: Props) {
   }
 
   return (
-    <div className="flex flex-col items-start max-w-xl px-8 mx-auto my-16 sm:p-0">
+    <div className="flex flex-col items-start max-w-xl px-8 mx-auto pt-20  sm:px-0">
       <h1 className="self-center text-3xl font-bold text-center sm:text-6xl">
         Learning Journey
       </h1>
