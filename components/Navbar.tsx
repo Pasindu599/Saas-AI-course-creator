@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import SigninButton from './SigninButton'
 import { getAuthSession } from '@/lib/auth'
-import UserAccount from './UserAccount'
+import UserAccountNav from './UserAccountNav'
 
 type Props = {}
 
@@ -36,7 +36,7 @@ const Navbar = async  (props: Props) => {
 
     <div className='flex items-center'>
         {
-            session?.user ? <UserAccount/>:<SigninButton/>
+            session?.user ? <UserAccountNav user={session.user}/>:<SigninButton/>
         }
 
     </div>
